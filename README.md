@@ -28,3 +28,14 @@ Explanation
 Values in the tuple  form an Isosceles triangle, because .
 Values in the tuple  form an Equilateral triangle, because . Values in the tuple  form a Scalene triangle, because .
 Values in the tuple  cannot form a triangle because the combined value of sides  and  is not larger than that of side .
+
+```sql
+select 
+    case 
+      when A + B <= C OR A+C <= B OR B+C <= A then 'Not A Triangle'
+      when A = B AND B = C then 'Equilateral'
+      when A = B OR B = C OR A = C then 'Isosceles'
+      else 'Scalene'
+    end
+from TRIANGLES;
+```
